@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view name="header"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import './App.scss'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods: {
+    ...mapActions({
+      setData: 'setData',
+    }),
+  },
+  mounted() {
+    const data = JSON.parse(localStorage.getItem('data'))
+    this.setData(data)
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, 'Kanit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+p {
+  margin: 0;
+}
+.modal {
+  font-family: Avenir, Helvetica, 'Kanit', sans-serif;
 }
 </style>
