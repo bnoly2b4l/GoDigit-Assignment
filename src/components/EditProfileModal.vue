@@ -70,7 +70,7 @@
           :options="statusOptions"
         ></b-form-select>
       </b-form-group>
-      <b-form-group class="information" label="สถานะ">
+      <b-form-group class="information" label="ความคิดเห็น">
         <b-form-textarea
           v-model="$v.form.remark.$model"
           :state="validateState('remark')"
