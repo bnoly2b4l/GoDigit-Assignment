@@ -17,7 +17,7 @@ export default {
     }),
   },
   mounted() {
-    const data = JSON.parse(localStorage.getItem('data'))
+    const data = JSON.parse(localStorage.getItem('data')) || []
     this.setData(data)
   }
 }
